@@ -1,0 +1,18 @@
+{
+  "name": "ncov-19-app",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www"
+  },
+  "dependencies": {
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "ejs": "~2.6.1",
+    "express": "~4.16.1",
+    "http-errors": "~1.6.3",
+    "jinja-js": "^0.1.8",
+    "morgan": "~1.9.1",
+    "nunjucks": "^3.2.1"
+  }
+}
