@@ -9,6 +9,7 @@ var nunjucks = require('nunjucks');
 //Middleware Routes
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+var rssRouter = require('./routes/rss');
 
 //Initialize Express Application
 var app = express();
@@ -46,15 +47,12 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'public'))); //where all my public files will be
 
 //Use the route paths below
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-
-
-const db = require("./db");
-db.sequelize.sync();
+app.use('/rss', rssRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
