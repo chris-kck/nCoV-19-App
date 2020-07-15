@@ -3,13 +3,13 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-var sqlite3 = require('sqlite3').verbose()
 var nunjucks = require('nunjucks');
 
 //Middleware Routes
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var rssRouter = require('./routes/rss');
+var healthRouter = require('./routes/health');
 
 //Initialize Express Application
 var app = express();
@@ -22,24 +22,7 @@ nunjucks.configure('views', {
   express: app,
   autoescape: true
 });
-app.set('view engine', 'htm');
-
-/*
-Used to generate database Schema & Insert dummy data
-var db = new sqlite3.Database('./db/sql.sqlite');
-db.serialize(function () {
-  db.run('CREATE TABLE lorem1 (info TEXT)')
-  var stmt = db.prepare('INSERT INTO lorem VALUES (?)')
-
-  for (var i = 0; i < 10; i++) {
-    stmt.run('Ipsum ' + i)
-  }
-  stmt.finalize()
-})
-
-db.close()
-
-*/
+app.set('view engine', 'htm'); //file extension
 
 
 
@@ -53,6 +36,7 @@ app.use(express.static(path.join(__dirname, 'public'))); //where all my public f
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/rss', rssRouter);
+app.use('/health', healthRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
