@@ -4,6 +4,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var nunjucks = require('nunjucks');
+var session = require('express-session')
 
 //Middleware Routes
 var indexRouter = require('./routes/index');
@@ -29,7 +30,9 @@ app.set('view engine', 'htm'); //file extension
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
+//app.use(cookieParser());
+app.use(session({name:"sid", resave: true, saveUninitialized: true, secret: 'ABRACADABRA2!ABRACADABRA', cookie: { maxAge: 60000 }}));
+
 app.use(express.static(path.join(__dirname, 'public'))); //where all my public files will be
 
 //Use the route paths below
