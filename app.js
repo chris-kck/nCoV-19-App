@@ -11,6 +11,8 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var rssRouter = require('./routes/rss');
 var healthRouter = require('./routes/health');
+var dashboardRouter = require('./routes/dashboard');
+
 
 //Initialize Express Application
 var app = express();
@@ -40,6 +42,7 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/rss', rssRouter);
 app.use('/health', healthRouter);
+app.use('/dashboard', dashboardRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
