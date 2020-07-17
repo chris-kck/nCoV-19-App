@@ -27,6 +27,6 @@ root/ <br>
 
 ```sh
 $ npm install
-$ node run start
+$ npm run start
 ```
 
