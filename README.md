@@ -1,8 +1,8 @@
 <div align="center">
-    <img src="https://github.com/chris-kck/nCoV-19-App/blob/master/public/assets/img/logo-dark.png" height="100">
+    <img src="https://github.com/chris-kck/nCoV-19-App/blob/master/public/assets/img/logo-dark.png" height="60">
     <h2>nCoV-19 Web App</h2>
     <p align="center">
-        <p>ERP made simple</p>
+        <p>My First Nodejs App</p>
     </p>
 </div>
 
