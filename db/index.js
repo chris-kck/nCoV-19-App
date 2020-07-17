@@ -83,6 +83,8 @@ request('https://raw.githubusercontent.com/dsfsi/covid19za/master/data/covid19za
     })
 
     console.log("Done Done Done")
+    var end = Date.now() + 10000
+    while (Date.now() < end) ;
 });
 
 module.exports = db;
