@@ -9,7 +9,7 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/', function(req, res, next) {
-  res.send('You do not have access! Go back and login as guest');
+  res.status(403).send('<h1>Access Denied</h1> <br> <h2>You do not have access! Click <a href="/login">here</a> to go back and login as guest</h2>');
 });
 
 module.exports = router;
