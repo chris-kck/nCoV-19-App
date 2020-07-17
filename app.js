@@ -5,6 +5,8 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var nunjucks = require('nunjucks');
 var session = require('express-session')
+var request = require('request');
+var fastcsv = require('fast-csv');
 
 //Middleware Routes
 var indexRouter = require('./routes/index');
@@ -12,6 +14,7 @@ var usersRouter = require('./routes/users');
 var rssRouter = require('./routes/rss');
 var healthRouter = require('./routes/health');
 var dashboardRouter = require('./routes/dashboard');
+var loginRouter = require('./routes/login')
 
 
 //Initialize Express Application
@@ -43,6 +46,7 @@ app.use('/users', usersRouter);
 app.use('/rss', rssRouter);
 app.use('/health', healthRouter);
 app.use('/dashboard', dashboardRouter);
+app.use('/login', loginRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -59,5 +63,8 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+
+
 
 module.exports = app;

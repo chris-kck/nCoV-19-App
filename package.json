@@ -11,10 +11,13 @@
     "ejs": "~2.6.1",
     "express": "~4.16.1",
     "express-session": "^1.17.1",
+    "fast-csv": "^4.3.1",
     "http-errors": "~1.6.3",
     "jinja-js": "^0.1.8",
     "morgan": "~1.9.1",
     "nunjucks": "^3.2.1",
+    "papaparse": "^5.2.0",
+    "request": "^2.88.2",
     "rss-parser": "^3.8.0",
     "sequelize": "^6.3.3",
     "sqlite3": "^5.0.0"
