@@ -8,4 +8,8 @@ router.get('/', function(req, res, next) {
   res.render('login', obj);
 });
 
+router.post('/', function(req, res, next) {
+  res.send('You do not have access! Go back and login as guest');
+});
+
 module.exports = router;

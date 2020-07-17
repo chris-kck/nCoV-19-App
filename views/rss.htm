@@ -11,7 +11,6 @@
 				<p class="panel-subtitle">Latest official covid-19 communication </p>
 				<div class="right">
 					<button type="button" class="btn-toggle-collapse"><i class="lnr lnr-chevron-up"></i></button>
-					<button type="button" class="btn-remove"><i class="lnr lnr-cross"></i></button>
 				</div>
 			</div>
 			<div class="panel-body">
@@ -50,17 +49,13 @@
 	<div class="col-md-8">
 		<div class="panel panel-headline">
 			<div class="panel-heading">
-				<h3 class="panel-title">Local and International Briefing</h3>
+				<h3 class="panel-title">Collated International News Briefing</h3>
 				<p class="panel-subtitle">Latest Realtime News Updates</p>
 				<div class="right">
 					<button type="button" class="btn-toggle-collapse"><i class="lnr lnr-chevron-up"></i></button>
 				</div>
 			</div>
 			<div class="panel-body">
-
-			<h1>RSS Data </h1>
-			<p>The data is: {{ data1.title }}</p>
-
 			{% for item in data1.items %}
 				<b><u>{{ item.title }}</u></b> <br>
 				{{ item.pubDate }} <br>
