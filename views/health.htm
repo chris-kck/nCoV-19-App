@@ -27,22 +27,84 @@
         <div class="col-md-6">
         <div class="panel panel-headline">
             <div class="panel-heading">
-                <h3 class="panel-title">Health Tips During Pandemic</h3>
-                <p class="panel-subtitle">Take Note</p>
+                <h3 class="panel-title">Health Metrics to Measure</h3>
+                <p class="panel-subtitle">Its imperative to stay healthy</p>
                 <div class="right">
                     <button type="button" class="btn-toggle-collapse"><i class="lnr lnr-chevron-up"></i></button>
                 </div>
             </div>
-        </div>
             <div class="panel-body">
 
-            <form id="myForm1" method="post">
-                Enter name: <input type="text" name="name">
-                Enter Height: <input type="integer" name="height">
-                Enter Weight: <input type="integer" name="weight">
-                <input type="submit" value="Submit">
+            <form id="tdee_calculator">
+
+                <h2>Total Daily Energy Expenditure</h2>
+                <h5>Gender:</h5>
+                <select id="gender" required>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                </select><br>
+
+                <h5>Age:</h5>
+                <select class="ages" required>
+                </select><br>
+
+                <h5>Height (in cm):</h5>
+                <input id="height" type="text"><br>
+
+                <h5>Weight (in kg):</h5>
+                <input id="weight" type="text"><br>
+
+                <h5>Activity Level:</h5>
+                <select id="activity_level">
+                    <option>Sedentary</option>
+                    <option>Light Active</option>
+                    <option>Moderately Active</option>
+                    <option>Very Active</option>
+                    <option>Extremely Active</option>
+                </select><br>
+
+                <input id="bmr" type="button" value="Check TDEE"><br>
+
+                <h5 id="tdee_output"></h5>
+
             </form>
 
+            <form id="macro_calculator">
+
+                <h2>Macronutrient need Calculator</h2>
+
+                <h5>Weight: (in kg)</h5>
+                <input id="macro_weight" type="text" required><br>
+
+                <input id="macro_button" type="button" value="Check Macros">
+
+                <h5 id="macro_output"></h5>
+
+            </form>
+
+            <form id="bmi_calculator">
+
+                <h2>Body Mass Index Calculator</h2>
+
+                <h5>Weight (in kg)</h5>
+                <input id="cur_weight" type="text" required><br>
+
+                <h5>Height (in centimeters)</h5>
+                <input id="cur_height" type="text" required><br>
+
+                <input id="bmi_button" type="button" value="Check BMI"><br>
+
+                <h5 id="bmi_output"></h5>
+
+                <h5>Under 18.5 = Underweight<br>
+                    Between 18.5 - 24.9 = Normal<br>
+                    Between 25 -  30 = Overweight<br>
+                    Over 30 = Obese</h5>
+
+            </form>
+
+            </div>
+        </div>
 
     </div>
 
@@ -62,5 +124,25 @@
             </div>
         </div>
     </div>
+
+    <style>
+
+        #tdee_calculator h5, #macro_calculator h5 {
+            display: inline;
+        }
+
+        #tdee_calculator {
+            background-color: #e4e4e4;
+        }
+
+        #macro_calculator, #bmi_calculator {
+            margin-top:5%;
+            background-color: #e4e4e4;
+        }
+
+        #container h2 {
+            text-decoration: underline;
+        }
+    </style>
 
 {% endblock %}
