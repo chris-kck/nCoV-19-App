@@ -22,7 +22,12 @@ const getCases = async (req, res, next) => {
 
   req.Wtotal = 0
   for (let i = 0; i <7 ; i++) {
-    req.Wtotal += Wcases[i].Cases
+    req.Wtotal += Wcases[i].Cases;
+  }
+
+  req.Wdtotal = 0
+  for (let i = 0; i <7 ; i++) {
+    req.Wdtotal += Wcases[i].Deaths;
   }
 
 
@@ -34,7 +39,7 @@ router.use(getCases);
 
 router.get('/', function(req, res, next) {
 
-  res.render('dashboard', {total:req.total, wdata:req.Wcases, Wtotal:req.Wtotal});
+  res.render('dashboard', {total:req.total, wdata:req.Wcases, Wtotal:req.Wtotal, Wdtotal:req.Wdtotal});
 });
 
 module.exports = router;

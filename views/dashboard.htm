@@ -3,13 +3,18 @@
 					<!-- OVERVIEW -->
 					<div class="panel panel-headline">
 						<div class="panel-heading">
-							<h3 class="panel-title">CoronaVirus Stats Overview</h3>
+							<h3 class="panel-title">Worldwide CoronaVirus Stats Overview</h3>
 							<p class="panel-subtitle">Latest Updates</p>
 						</div>
 						<div class="panel-body">
 							<div class="row">
+								<h4>Total Cases Worldwide : {{ Wtotal }} </h4>
+								<h4>Total Deaths Worldwide : {{ Wdtotal }} </h4>
 								<div class="col-md-12">
 									<canvas id="polar-chart" width="800" height="450"></canvas>
+								</div>
+								<div class="panel-heading">
+									<h3 class="panel-title">South Africa CoronaVirus Stats Overview </h3>
 								</div>
 
 								<div class="col-md-3">
@@ -71,10 +76,8 @@
 						</div>
 					</div>
 					<!-- END OVERVIEW -->
-	<canvas id="polar-chart" width="800" height="450"></canvas>
 
 
-	<h1>{{ Wtotal }} </h1>
 
 	<script>
 	new Chart(document.getElementById("polar-chart"), {

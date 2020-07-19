@@ -106,7 +106,9 @@ function insertdata1(data){
     console.log("Worlddata ran");
 }
 
+//Disable this sync as it is time consuming and delays startup significantly.
 
+/*
 request('https://covid19.who.int/WHO-COVID-19-global-data.csv', {json: false}, (err, res, body) => {
     if (err) {
         return console.log(err);
@@ -133,7 +135,7 @@ request('https://covid19.who.int/WHO-COVID-19-global-data.csv', {json: false}, (
     while (Date.now() < end) ;
 });
 
-
+ */
 
 
 
