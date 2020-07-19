@@ -10,7 +10,7 @@ const getCases = async (req, res, next) => {
   });
   console.log(cases);
 
-  let Wcases = await db.sequelize.query('SELECT `WHO_region` , Max(Cumulative_cases) AS Cases , Max(Cumulative_deaths) AS Deaths FROM WorldCases GROUP BY WHO_region', {
+  let Wcases = await db.sequelize.query('SELECT `WHO_region` , Sum(WorldCases.New_cases) AS Cases , Sum(WorldCases.New_deaths) AS Deaths FROM WorldCases GROUP BY WHO_region', {
     type: db.sequelize.QueryTypes.SELECT
   });
 
@@ -20,6 +20,12 @@ const getCases = async (req, res, next) => {
   req.total = cases[0].total; // [ { total: 324221 } ]
   req.Wcases = Wcases; // Who regions nd total data
 
+  req.Wtotal = 0
+  for (let i = 0; i <7 ; i++) {
+    req.Wtotal += Wcases[i].Cases
+  }
+
+
   next();
 }
 
@@ -28,7 +34,7 @@ router.use(getCases);
 
 router.get('/', function(req, res, next) {
 
-  res.render('dashboard', {total:req.total, wdata:req.Wcases});
+  res.render('dashboard', {total:req.total, wdata:req.Wcases, Wtotal:req.Wtotal});
 });
 
 module.exports = router;

@@ -8,6 +8,10 @@
 						</div>
 						<div class="panel-body">
 							<div class="row">
+								<div class="col-md-12">
+									<canvas id="polar-chart" width="800" height="450"></canvas>
+								</div>
+
 								<div class="col-md-3">
 									<div class="metric">
 										<span class="icon"><i class="fa fa-sort-amount-asc"></i></span>
@@ -69,16 +73,19 @@
 					<!-- END OVERVIEW -->
 	<canvas id="polar-chart" width="800" height="450"></canvas>
 
+
+	<h1>{{ Wtotal }} </h1>
+
 	<script>
 	new Chart(document.getElementById("polar-chart"), {
 	type: 'polarArea',
 	data: {
-	labels: ["African Region (AFRO)", " Region of the Americas (PAHO)", "South-East Asia Region (SEARO)", "European Region (EURO)", "Eastern Mediterranean Region (EMRO)",  "Western Pacific Region (WPRO)", "Other"],
+	labels: ["African Region (AFRO)", " Region of the Americas (AMRO)", "Eastern Mediterranean Region (EMRO)", "European Region (EURO)", "Other", "South-East Asia Region (SEARO)",  "Western Pacific Region (WPRO)"],
 	datasets: [
 	{
 	label: "Cases in each Region",
 	backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850", "#c4ff50", "#052642", "#c4651d"],
-	data: [{{ AFRO }}, {{ PAHO }}, {{ SEARO }}, {{ EURO }}, {{ EMRO }}, {{ SEARO }}, {{ WPRO }}, {{ Other }}]
+	data: [{{ wdata[0].Cases }}, {{ wdata[1].Cases }}, {{ wdata[2].Cases }}, {{ wdata[3].Cases }}, {{ wdata[4].Cases }}, {{ wdata[5].Cases }}, {{ wdata[6].Cases}}]
 	}
 	]
 	},
