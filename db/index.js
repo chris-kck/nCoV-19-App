@@ -5,6 +5,7 @@
 var UserModel = require('./usermodel');
 var RssModel = require('./rssmodel');
 var SACaseModel = require('./sacasemodel');
+var WorldCaseModel = require('./worldcasemodel');
 var Sequelize = require('sequelize');
 var request = require('request');
 var papaparse = require('papaparse');
@@ -20,6 +21,7 @@ const sequelize = new Sequelize({
 const User = UserModel( sequelize, Sequelize);
 const Rss = RssModel( sequelize, Sequelize);
 const SACase = SACaseModel( sequelize, Sequelize);
+const WorldCase = WorldCaseModel( sequelize, Sequelize);
 
 const db = {};
 db.Sequelize= Sequelize;
@@ -27,10 +29,11 @@ db.sequelize = sequelize;
 db.User = User;
 db.Rss = Rss;
 db.SACase = SACase;
+db.WorldCase = WorldCase;
 
 //db.sequelize.sync();
 //drop each time the app restarts
-db.sequelize.sync({ force: true }).then(() => {
+SACase.sync({ force: true}).then(() => {
     console.log("Drop and re-sync db.");
 });
 
@@ -83,8 +86,56 @@ request('https://raw.githubusercontent.com/dsfsi/covid19za/master/data/covid19za
     })
 
     console.log("Done Done Done")
+    //Time delay to allow db to process data.
     var end = Date.now() + 10000
     while (Date.now() < end) ;
 });
+
+
+
+//https://covid19.who.int/WHO-COVID-19-global-data.csv
+//Store data in db?
+
+function insertdata1(data){
+
+    let wcases = db.sequelize.query('INSERT INTO "WorldCases" (`Date_reported`, `Country_code` , `Country`, `WHO_region`, `New_cases`, `Cumulative_cases`, `New_deaths`, `Cumulative_deaths`, `createdAt`, `updatedAt`)    VALUES (:Date_reported, :Country_code, :Country, :WHO_region, :New_cases, :Cumulative_cases, :New_deaths, :Cumulative_deaths, DATE("now"), DATE("now"))', {
+        replacements: {Date_reported: data.Date_reported , Country_code:data.Country_code,  Country:data.Country, WHO_region:data.WHO_region, New_cases:data.New_cases, Cumulative_cases:data.Cumulative_cases, New_deaths:data.New_deaths, Cumulative_deaths:data.Cumulative_deaths },
+        type: db.sequelize.QueryTypes.INSERT
+    });
+
+    console.log("Worlddata ran");
+}
+
+
+request('https://covid19.who.int/WHO-COVID-19-global-data.csv', {json: false}, (err, res, body) => {
+    if (err) {
+        return console.log(err);
+    }
+
+    var who = papaparse.parse(body, {
+        download: false,
+        header:true,
+        delimiter: ",",
+        dynamicTyping: true,
+        transformHeader:function(h) { //trim who data header with leading whitespace
+            return h.trim();
+        },
+        step: function (row) {
+
+            if (row.data.Date_reported != null)
+                //insertdata1(row.data);
+                console.log(row.data);
+            // call insert with each row.
+        }
+    })
+
+    var end = Date.now() + 10000
+    while (Date.now() < end) ;
+});
+
+
+
+
+
 
 module.exports = db;

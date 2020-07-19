@@ -5,7 +5,7 @@ var router = express.Router();
 
 router.get('/', function(req, res) {
   //console.log(req.session.value );
-  res.render('index');
+  res.render('login')
 });
 
 module.exports = router;

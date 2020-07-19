@@ -51,15 +51,15 @@
 								</div>
 								<div class="col-md-3">
 									<div class="weekly-summary text-right">
-										<span class="number">13 105</span> <span class="percentage"><i class="fa fa-caret-up text-success"></i> 5%</span>
+										<span class="number">13 105</span> <span class="percentage"><i class="fa fa-caret-up text-success"></i></span>
 										<span class="info-label">New Cases</span>
 									</div>
 									<div class="weekly-summary text-right">
-										<span class="number">158, 630</span> <span class="percentage"><i class="fa fa-caret-up text-success"></i> 3%</span>
+										<span class="number">158, 630</span> <span class="percentage"><i class="fa fa-caret-up text-success"></i></span>
 										<span class="info-label">Active Cases</span>
 									</div>
 									<div class="weekly-summary text-right">
-										<span class="number">150</span> <span class="percentage"><i class="fa fa-caret-down text-danger"></i> 4%</span>
+										<span class="number">150</span> <span class="percentage"><i class="fa fa-caret-down text-danger"></i></span>
 										<span class="info-label">Deaths</span>
 									</div>
 								</div>
@@ -67,4 +67,27 @@
 						</div>
 					</div>
 					<!-- END OVERVIEW -->
+	<canvas id="polar-chart" width="800" height="450"></canvas>
+
+	<script>
+	new Chart(document.getElementById("polar-chart"), {
+	type: 'polarArea',
+	data: {
+	labels: ["African Region (AFRO)", " Region of the Americas (PAHO)", "South-East Asia Region (SEARO)", "European Region (EURO)", "Eastern Mediterranean Region (EMRO)",  "Western Pacific Region (WPRO)", "Other"],
+	datasets: [
+	{
+	label: "Cases in each Region",
+	backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850", "#c4ff50", "#052642", "#c4651d"],
+	data: [{{ AFRO }}, {{ PAHO }}, {{ SEARO }}, {{ EURO }}, {{ EMRO }}, {{ SEARO }}, {{ WPRO }}, {{ Other }}]
+	}
+	]
+	},
+	options: {
+	title: {
+	display: true,
+	text: 'Covid Cases Worldwide Distribution'
+	}
+	}
+	});
+	</script>
 {% endblock %}

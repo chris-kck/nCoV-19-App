@@ -11,7 +11,14 @@
                     </div>
                 </div>
                 <div class="panel-body">
-                    <p>Quiz</p>
+
+                    {% for number in range (1,13) %}
+                        <div class="col-md-4">
+                            <img width="300px" src="images/fact{{ number }}.jpg"> <hr>
+                        </div>
+                    {% endfor %}
+
+
                 </div>
             </div>
         </div>
