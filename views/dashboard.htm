@@ -85,14 +85,14 @@
 	{
 	label: "Cases in each Region",
 	backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850", "#c4ff50", "#052642", "#c4651d"],
-	data: [{{ wdata[0].Cases }}, {{ wdata[1].Cases }}, {{ wdata[2].Cases }}, {{ wdata[3].Cases }}, {{ wdata[4].Cases }}, {{ wdata[5].Cases }}, {{ wdata[6].Cases}}]
+	data: [{{ wdata[0].Cases/ Wtotal }}, {{ wdata[1].Cases/ Wtotal }}, {{ wdata[2].Cases/ Wtotal }}, {{ wdata[3].Cases/ Wtotal }}, {{ wdata[4].Cases/ Wtotal }}, {{ wdata[5].Cases/ Wtotal }}, {{ wdata[6].Cases/ Wtotal}}]
 	}
 	]
 	},
 	options: {
 	title: {
 	display: true,
-	text: 'Covid Cases Worldwide Distribution'
+	text: 'Normalized Covid Cases Worldwide Distribution'
 	}
 	}
 	});
