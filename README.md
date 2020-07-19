@@ -14,13 +14,13 @@ This is a webapp with all the information relating to COVID-19, latest news, edu
 
 ### This is the directory structure of the project:
 
-root/ - project root directory<br>
-├─ bin/ - web server launch & project startup<br> 
-├─ db/ - database storage and manipulations<br>
-├── public/ -public assets <br>
-├── routes/ - project browsing routes<br>
-├── views/ - markup for rendered pages <br>
-├── node-modules/ - all node modules and their pre-req<br>
+root/ ``` project root directory```<br>
+├─ bin/ ``` web server launch & project startup```<br> 
+├─ db/ ```database storage and manipulations```<br>
+├─ public/ ```public assets ```<br>
+├─ routes/  ```project browsing routes``` <br>
+├─ views/  ```markup for rendered pages``` <br>
+├─ node-modules/ ```all node modules and their pre-req```<br>
 
 + Install dependencies
 + Run the application bin/www

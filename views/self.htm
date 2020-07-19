@@ -10,10 +10,47 @@
                         <button type="button" class="btn-toggle-collapse"><i class="lnr lnr-chevron-up"></i></button>
                     </div>
                 </div>
+
                 <div class="panel-body">
-                    <p>Self Assessment Form</p>
+                    <p>Note that this self-assessment tool is intended for COVID-19 only. Your symptoms may not be related to COVID-19 and could require you to seek medical attention. If you are uncertain and/or feel very sick, contact your family doctor/nurse practitioner or call 9-1-1.
+                    </p>
+                    <p>Are you experiencing any of the following:<br>
+                    <ul>
+                        <li>Severe difficulty breathing (e.g. struggling to breathe or speaking in single words)</li>
+                        <li>Severe chest pain</li>
+                        <li>Having a very hard time waking up</li>
+                        <li>Feeling confused</li>
+                        <li>Losing consciousness</li>
+                    </ul>
+                    </p>
+                    <label class="fancy-radio">
+                        <input name="yes" value="Yes" type="radio">
+                        <span><i></i>Yes</span>
+                    </label>
+                    <label class="fancy-radio">
+                        <input name="yes" value="Yes" type="radio">
+                        <span><i></i>No</span>
+                    </label>
+                    <hr>
+                    <p>Are you experiencing any of the following: <br>
+                    <ul>
+                        <li>Mild to moderate shortness of breath</li>
+                        <li>Inability to lie down because of difficulty breathing</li>
+                        <li>Chronic health conditions that you are having difficulty managing because of difficulty breathing</li>
+                    </ul>
+                    </p>
+                    <label class="fancy-radio">
+                        <input name="yes" value="Yes" type="radio">
+                        <span><i></i>Yes</span>
+                    </label>
+                    <label class="fancy-radio">
+                        <input name="yes" value="Yes" type="radio">
+                        <span><i></i>No</span>
+                    </label>
+
+                    <button type="button" class="btn btn-default btn-toastr" data-context="info" data-message="Assessment Result" data-position="bottom-center">Submit for Assessment</button>
                 </div>
-            </div>
+        </div>
         </div>
     </div>
 {% endblock %}
